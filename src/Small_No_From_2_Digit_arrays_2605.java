@@ -36,14 +36,4 @@ public class Small_No_From_2_Digit_arrays_2605 {
         int result = 10 * Math.min(min1, min2) + Math.max(min1, min2);
         return result;
     }
-
-    public int getMinimum(int[] nums) {
-        int min = Integer.MAX_VALUE;
-        int ans;
-        for (int i = 0; i < nums.length; i++) {
-            min = Math.min(min, nums[i]);
-            ans = min;
-        }
-        return min;
-    }
 }
