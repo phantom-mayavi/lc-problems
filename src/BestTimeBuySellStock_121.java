@@ -2,9 +2,10 @@ public class BestTimeBuySellStock_121 {
     public static void main(String[] args) {
         BestTimeBuySellStock_121 myObj = new BestTimeBuySellStock_121();
         System.out.println(myObj.maxProfit(new int[]{7,1,5,3,6,4}));
+        System.out.println(myObj.maxProfit1(new int[]{7,1,5,3,6,4}));
     }
 
-    public int maxProfit(int[] prices) {
+    public int maxProfit1(int[] prices) {
         int buyPrice = prices[0];
         int profit = 0;
 
@@ -14,6 +15,18 @@ public class BestTimeBuySellStock_121 {
             } else if (prices[i] - buyPrice > profit) {
                 profit = prices[i] - buyPrice;
             }
+        }
+
+        return profit;
+    }
+
+    public int maxProfit(int[] prices) {
+        int buyPrice = prices[0];
+        int profit = 0;
+
+        for (int currPrice : prices) {
+            buyPrice = Math.min(buyPrice, currPrice);
+            profit = Math.max(profit, currPrice - buyPrice);
         }
 
         return profit;
